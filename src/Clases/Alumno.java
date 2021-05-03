@@ -53,6 +53,11 @@ public class Alumno {
     public int cantidadMaterias(){
       return matIns.size();  
     }
+
+    @Override
+    public String toString() {
+        return  apellido+" "+nombre ;
+    }
     
     
 }

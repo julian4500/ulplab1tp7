@@ -5,9 +5,11 @@
  */
 package Vistas;
 
-import tp7_prueba.*;
+
 import Clases.Alumno;
 import Clases.Materia;
+import java.util.HashSet;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -15,11 +17,16 @@ import Clases.Materia;
  */
 public class Inscripcion extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form Inscripcion
-     */
-    public Inscripcion() {
+   //HashSet<Alumno> listAlumnos;
+   //HashSet<Materia> listMaterias;
+   
+    public Inscripcion(/*HashSet<Alumno> listAlumnos,HashSet<Materia> listMaterias*/) {
         initComponents();
+        //this.listMaterias=listMaterias;
+        //this.listAlumnos=listAlumnos;
+        
+        MenuPrincipal.Listas.alumnos.forEach((alumno) -> cAlumnos.addItem(alumno));
+        MenuPrincipal.Listas.materias.forEach((materia) -> cMaterias.addItem(materia));
     }
 
     /**
@@ -48,6 +55,11 @@ public class Inscripcion extends javax.swing.JInternalFrame {
         jLabel2.setText("Materias");
 
         binscribir.setText("Inscribir");
+        binscribir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                binscribirActionPerformed(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 0, 51));
@@ -96,6 +108,12 @@ public class Inscripcion extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void binscribirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_binscribirActionPerformed
+       Alumno a = (Alumno) cAlumnos.getSelectedItem();
+        (a).agregarMateria((Materia)cMaterias.getSelectedItem());
+        JOptionPane.showMessageDialog(null, a.cantidadMaterias());
+    }//GEN-LAST:event_binscribirActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

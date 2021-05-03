@@ -6,6 +6,7 @@
 package Tp7;
 
 import Clases.*;
+import Vistas.MenuPrincipal;
 
 /**
  *
@@ -35,7 +36,9 @@ public class martinezJuliantp7 {
        System.out.println("La cantidad de materias inscriptas de "+mBrenda.getApellido()+" "+
                mBrenda.getNombre()+" son: "+mBrenda.cantidadMaterias());
 
-       
+       MenuPrincipal mppal=new MenuPrincipal();
+       mppal.setVisible(true);
+       mppal.setLocationRelativeTo(null);
        
     }
     
